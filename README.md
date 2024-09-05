@@ -270,3 +270,13 @@ Ce code fait 3 choses :
 Comme ce contenu est un peu gros, on utilise une astuce pour le mettre dans une variable. On appelle la foncti`onob_start()`(ligne 3) qui "mémori   se" toute la sortie HTML qui suit. Puis, à la fin, on récupère le contenu généré avec`ob_get_clean()`(ligne 28) et on met le tout dans$content.
 
 - Enfin, il **appelle le template** avec un `require`. Celui-ci va récupérer les variables$titleet$contentqu'on vient de créer... pour afficher la page !
+
+### Router idea
+
+Have a "in" file where the user will be directed to other parts of the site
+
+- Le routeur est un composant du code qui a pour rôle de recevoir toutes les requêtes de l'application et de router chacune vers le bon contrôleur.
+
+- On préfère créer un fichier par contrôleur, tous rassemblés dans un même dossier. À l'intérieur, chaque fichier définit une fonction, qui sera appelée par le routeur.
+
+- Quand on fonctionne avec des fichiers PHP de type "bibliothèque de code", il faut utiliser`require_once`pour éviter des plantages.
