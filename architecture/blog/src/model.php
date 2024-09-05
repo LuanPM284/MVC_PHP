@@ -44,11 +44,11 @@ function getPost($identifier)
 // Nouvelle fonction qui nous permet d'éviter de répéter du code
 function dbConnect()
 {
-    try {
-        $database = new PDO('mysql:host=db;dbname=demo;charset=utf8', 'user', 'pass');
+    // try {
+    $database = new PDO('mysql:host=db;dbname=demo;charset=utf8', 'user', 'pass');
 
-        return $database;
-    } catch (Exception $e) {
-        die('Erreur : ' . $e->getMessage());
-    }
+    return $database;
+    // } catch (Exception $e) {
+    //     die('Erreur : ' . $e->getMessage());
+    // }
 }
