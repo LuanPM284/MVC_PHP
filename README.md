@@ -257,3 +257,16 @@ Explications:
 - **Vue** : cette partie se concentre sur l'affichage. Elle ne fait presque aucun calcul et se contente de récupérer des variables pour savoir ce qu'elle doit afficher. On y trouve essentiellement du code HTML mais aussi quelques boucles et conditions PHP très simples, pour afficher par exemple une liste de messages.
 
 - **Contrôleur** : cette partie gère les échanges avec l'utilisateur. C'est en quelque sorte l'intermédiaire entre l'utilisateur, le modèle et la vue. Le contrôleur va recevoir des requêtes de l'utilisateur. Pour chacune, il va demander au modèle d'effectuer certaines actions (lire des articles de blog depuis une base de données, supprimer un commentaire) et de lui renvoyer les résultats (la liste des articles, si la suppression est réussie). Puis il va adapter ce résultat et le donner à la vue. Enfin, il va renvoyer la nouvelle page HTML, générée par la vue, à l'utilisateur.
+
+---
+
+For the layout and homepage connection the following was used:
+
+Ce code fait 3 choses :
+
+- Il définit le **titre** de la page dans`$title`. Celui-ci sera intégré dans la balise < title>dans le template.
+
+- Il définit le **contenu** de la page dans`$content`. Il sera intégré dans la balise< body>du template.
+Comme ce contenu est un peu gros, on utilise une astuce pour le mettre dans une variable. On appelle la foncti`onob_start()`(ligne 3) qui "mémori   se" toute la sortie HTML qui suit. Puis, à la fin, on récupère le contenu généré avec`ob_get_clean()`(ligne 28) et on met le tout dans$content.
+
+- Enfin, il **appelle le template** avec un `require`. Celui-ci va récupérer les variables$titleet$contentqu'on vient de créer... pour afficher la page !
